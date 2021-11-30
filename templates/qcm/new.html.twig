@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Qcm{% endblock %}
+
+{% block body %}
+    <h1>Create new Qcm</h1>
+
+    {{ include('qcm/_form.html.twig') }}
+
+    <a href="{{ path('qcm_index') }}">back to list</a>
+{% endblock %}

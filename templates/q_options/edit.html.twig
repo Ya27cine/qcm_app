@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit QOptions{% endblock %}
+
+{% block body %}
+    <h1>Edit QOptions</h1>
+
+    {{ include('q_options/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('q_options_index') }}">back to list</a>
+
+    {{ include('q_options/_delete_form.html.twig') }}
+{% endblock %}

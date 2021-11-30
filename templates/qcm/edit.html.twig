@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Qcm{% endblock %}
+
+{% block body %}
+    <h1>Edit Qcm</h1>
+
+    {{ include('qcm/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('qcm_index') }}">back to list</a>
+
+    {{ include('qcm/_delete_form.html.twig') }}
+{% endblock %}

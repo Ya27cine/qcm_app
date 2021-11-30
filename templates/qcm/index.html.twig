@@ -1,20 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello QcmController!{% endblock %}
+{% block title %}Qcm index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Qcm index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for qcm in qcms %}
+            <tr>
+                <td>{{ qcm.id }}</td>
+                <td>{{ qcm.title }}</td>
+                <td>{{ qcm.description }}</td>
+                <td>
+                    <a href="{{ path('qcm_show', {'id': qcm.id}) }}" class="btn btn-info w-100 my-1">show</a>
+                    <a href="{{ path('qcm_edit', {'id': qcm.id}) }}" class="btn btn-danger w-100">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/prostam/workspace/dev/web/back/php/my_projects/forms/qcm-app/src/Controller/QcmController.php'|file_link(0) }}">src/Controller/QcmController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/prostam/workspace/dev/web/back/php/my_projects/forms/qcm-app/templates/qcm/index.html.twig'|file_link(0) }}">templates/qcm/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <a href="{{ path('qcm_new') }}" class="btn btn-success">Create new</a>
 {% endblock %}

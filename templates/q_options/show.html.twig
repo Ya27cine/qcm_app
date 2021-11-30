@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QOptions{% endblock %}
+
+{% block body %}
+    <h1>QOptions</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ q_option.id }}</td>
+            </tr>
+            <tr>
+                <th>Decription</th>
+                <td>{{ q_option.decription }}</td>
+            </tr>
+            <tr>
+                <th>Is_answer</th>
+                <td>{{ q_option.isAnswer ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('q_options_index') }}">back to list</a>
+
+    <a href="{{ path('q_options_edit', {'id': q_option.id}) }}">edit</a>
+
+    {{ include('q_options/_delete_form.html.twig') }}
+{% endblock %}
